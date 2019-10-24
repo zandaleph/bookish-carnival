@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
 import { setUser, isLoggedIn } from '../utils/auth'
 import Error from './Error'
