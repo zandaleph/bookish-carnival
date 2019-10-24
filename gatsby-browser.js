@@ -6,19 +6,19 @@
 
 // You can delete this file if you're not using it
 
-import Auth from '@aws-amplify/auth'
-import { setUser } from './src/utils/auth'
+import Auth from '@aws-amplify/auth';
+import { setUser } from './src/utils/auth';
 
-export const onRouteUpdate = (state, page, pages) => {
+export const onRouteUpdate = (_state, _page, _pages) => {
   Auth.currentAuthenticatedUser()
     .then(user => {
       const userInfo = {
         ...user.attributes,
-        username: user.username
-      }
-      setUser(userInfo)
+        username: user.username,
+      };
+      setUser(userInfo);
     })
-    .catch(err => {
-      window.localStorage.setItem('gatsbyUser', null)
-    })
-}
+    .catch(() => {
+      window.localStorage.setItem('gatsbyUser', null);
+    });
+};

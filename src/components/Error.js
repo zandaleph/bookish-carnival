@@ -5,7 +5,7 @@ export default function Error(props) {
   return (
     <div>
       {Object.entries(props).map(([err, val]) => (
-        <pre err={err}>
+        <pre key={err} err={err}>
           <strong>{err}: </strong>
           {JSON.stringify(val, '', ' ')}
         </pre>
