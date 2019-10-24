@@ -1,12 +1,12 @@
-import React from 'react'
-import { navigate } from '@reach/router'
-import { isLoggedIn } from '../utils/auth'
+import React from 'react';
+import { navigate } from '@reach/router';
+import { isLoggedIn } from '../utils/auth';
 
 export default function PrivateRoute(props) {
-  const { component: Component, location, ...rest } = props
+  const { component: Component, location, ...rest } = props;
   if (!isLoggedIn()) {
-    navigate(`/`)
-    return null
+    navigate(`/`);
+    return null;
   }
-  return <Component {...rest} />
+  return <Component {...rest} />;
 }

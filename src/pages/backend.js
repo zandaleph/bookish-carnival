@@ -1,10 +1,10 @@
-import React from 'react'
-import { Router } from '@reach/router'
-import Layout from '../components/Layout'
-import Details from '../components/Details'
-import Home from '../components/Home'
-import Login from '../components/Login'
-import PrivateRoute from '../components/PrivateRoute'
+import React from 'react';
+import { Router } from '@reach/router';
+import Layout from '../components/Layout';
+import Details from '../components/Details';
+import Home from '../components/Home';
+import Login from '../components/Login';
+import PrivateRoute from '../components/PrivateRoute';
 
 export default function Backend() {
   return (
@@ -15,5 +15,5 @@ export default function Backend() {
         <Login path="/backend" />
       </Router>
     </Layout>
-  )
+  );
 }
