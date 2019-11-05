@@ -15,6 +15,8 @@ export default function Layout({ children }) {
           site {
             siteMetadata {
               title
+              description
+              author
             }
           }
         }
@@ -24,8 +26,12 @@ export default function Layout({ children }) {
           <Helmet
             title={data.site.siteMetadata.title}
             meta={[
-              { name: 'description', content: 'Sample' },
+              {
+                name: 'description',
+                content: data.site.siteMetadata.description,
+              },
               { name: 'keywords', content: 'sample, something' },
+              { name: 'author', content: data.site.siteMetadata.author },
             ]}
           >
             <html lang="en" />
