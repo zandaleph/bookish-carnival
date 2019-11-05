@@ -4,21 +4,27 @@
   "version": "1.0.0",
   "author": "Nader Dabit <dabit3.@gmail.com>",
   "dependencies": {
+    "@emotion/core": "^10.0.22",
     "aws-amplify": "^1.0.5",
     "aws-amplify-react": "^1.0.5",
     "gatsby": "^2.13.45",
     "gatsby-image": "^2.2.7",
+    "gatsby-plugin-emotion": "^4.1.13",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-plugin-typography": "^2.3.15",
     "gatsby-source-filesystem": "^2.1.7",
     "gatsby-source-graphql": "^2.1.3",
     "gatsby-transformer-sharp": "^2.2.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-lincoln": "^0.16.19"
   },
   "keywords": [
     "gatsby"

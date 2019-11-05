@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { css } from '@emotion/core';
+import { rhythm } from '../utils/typography';
 
 import { navigate } from '@reach/router';
 
@@ -8,49 +10,32 @@ import { Auth } from 'aws-amplify';
 
 export default function Header({ siteTitle }) {
   return (
-    <div
-      style={{
-        background: 'rebeccapurple',
-        marginBottom: '1.45rem',
-      }}
-    >
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '1.45rem 1.0875rem',
-        }}
-      >
-        <h1 style={{ margin: 0 }}>
-          <Link to="/" style={styles.headerTitle}>
-            {siteTitle}
-          </Link>
+    <>
+      <Link to="/">
+        <h1
+          css={css`
+            display: inline-block;
+            font-style: normal;
+          `}
+        >
+          {siteTitle}
         </h1>
-        {isLoggedIn() && (
-          <p
-            onClick={() =>
-              Auth.signOut()
-                .then(logout(() => navigate('/backend')))
-                .catch(err => console.log('eror:', err))
-            }
-            style={styles.link}
-          >
-            Sign Out
-          </p>
-        )}
-      </div>
-    </div>
+      </Link>
+      {isLoggedIn() && (
+        <a
+          onClick={() =>
+            Auth.signOut()
+              .then(logout(() => navigate('/backend')))
+              .catch(err => console.log('eror:', err))
+          }
+          css={css`
+            margin-top: ${rhythm(1.5)};
+            float: right;
+          `}
+        >
+          Sign Out
+        </a>
+      )}
+    </>
   );
 }
-
-const styles = {
-  headerTitle: {
-    color: 'white',
-    textDecoration: 'none',
-  },
-  link: {
-    cursor: 'pointer',
-    color: 'white',
-    textDecoration: 'underline',
-  },
-};
