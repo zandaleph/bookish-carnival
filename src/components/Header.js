@@ -6,7 +6,7 @@ import { rhythm } from '../utils/typography';
 import { navigate } from '@reach/router';
 
 import { logout, isLoggedIn } from '../utils/auth';
-import { Auth } from 'aws-amplify';
+// import { Auth } from 'aws-amplify';
 
 export default function Header({ siteTitle }) {
   return (
@@ -23,11 +23,13 @@ export default function Header({ siteTitle }) {
       </Link>
       {isLoggedIn() && (
         <a
-          onClick={() =>
+          onClick={async () => {
+            const { Auth } = await import('aws-amplify');
+
             Auth.signOut()
               .then(logout(() => navigate('/backend')))
-              .catch(err => console.log('eror:', err))
-          }
+              .catch(err => console.log('eror:', err));
+          }}
           css={css`
             margin-top: ${rhythm(1.5)};
             float: right;

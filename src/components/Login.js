@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from '@reach/router';
 import { setUser, isLoggedIn } from '../utils/auth';
 import Error from './Error';
-import { Auth } from 'aws-amplify';
+// import { Auth } from 'aws-amplify';
 import { useState } from 'react';
 
 export default function Login() {
@@ -11,6 +11,7 @@ export default function Login() {
   const [error, setError] = useState(null);
 
   const login = async () => {
+    const { Auth } = await import('aws-amplify');
     try {
       await Auth.signIn(username, password);
       const user = await Auth.currentAuthenticatedUser();
