@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { Link, graphql } from 'gatsby';
+
 import Layout from '../components/Layout';
 
 import Amplify from 'aws-amplify';
 import config from '../aws-exports';
 Amplify.configure(config);
 
-export default function IndexPage() {
+export default function IndexPage({ data }) {
   return (
     <Layout>
       <h1>A Website</h1>
@@ -16,10 +18,31 @@ export default function IndexPage() {
         riveting weblog entries.
       </p>
       <ul>
-        <li>
-          <a>Placeholder</a>
-        </li>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <li key={node.id}>
+            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+          </li>
+        ))}
       </ul>
     </Layout>
   );
 }
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
