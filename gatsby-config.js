@@ -21,7 +21,25 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              colorTheme: 'Solarized Light',
+              extensions: [
+                {
+                  identifier: 'shanoor.vscode-nginx',
+                  version: '0.6.0',
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

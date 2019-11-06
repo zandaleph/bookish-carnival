@@ -11,11 +11,15 @@ To do anything other than static, however, I would need a server. Because I was 
 
 A few button clicks later [1] I had a running instance and console access. By itself, it did nothing other than let me run commands. Therefore, the next step was setting up a webserver. I settled on nginx because it appeared easy to install and set up. I was not dissapointed. To install [2], all I had to do was:
 
+```sh
 sudo yum install nginx
+```
 
 To start the server, I ran the following command:
 
+```sh
 sudo service nginx start
+```
 
 The way the nginx server came configured, it was just serving static content out of the /usr/share/nginx/html/ directory. This directory was pretty boring, containing only a sample index.html page and some error pages. At this point, I could have just moved my static content into that directory and changed my DNS entry, but there was a slight problem.
 
@@ -29,6 +33,7 @@ I opted to use simple health-check based failover, and instructed Route 53 to ch
 
 The only thing left to do was make sure that my webserver and S3 stayed in sync, so that I didn't lose static content in the event of a failure. For now, I decided that I would simply forward all requests received by my webserver to S3, thus only needing to maintain one copy of the files. The nginx configuration for this is below: [4].
 
+```nginx
 http { # some logging configuration
 
     upstream altmeta-s3 {
@@ -55,10 +60,13 @@ http { # some logging configuration
     }
 
 }
+```
 
 This way, the only file I need to have served statically from my host is /ping. There's probably a way I can do this without even that file, but I'm still learning nginx and couldn't figure it out quickly. After I changed the config, I simply had to tell nginx to reload the config with:
 
+```sh
 sudo service nginx reload
+```
 
 At this point, if my instance goes down, I lose two files (the modified nginx.conf and the /ping file). I can probably write a simple script to do this for me if the host goes down more than once, but for now I'm happy to do that by hand.
 
