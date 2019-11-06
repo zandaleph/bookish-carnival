@@ -9,12 +9,17 @@ Amplify.configure(config);
 export default function IndexPage() {
   return (
     <Layout>
-      <h1>Hi people</h1>
+      <h1>A Website</h1>
       <p>
-        Welcome to your new Gatsby site with multi-user authentication powered
-        by <a href="https://amplify.aws">AWS Amplify</a>
+        Welcome to Altmeta.org. I&apos;d invite you to sit and stay for a while,
+        but there&apos;s nowhere to sit. Instead, all I can offer you is my
+        riveting weblog entries.
       </p>
-      <br />
+      <ul>
+        <li>
+          <a>Placeholder</a>
+        </li>
+      </ul>
     </Layout>
   );
 }
