@@ -5,7 +5,7 @@ lead: 'In which I emit my first thoughts on this weblog.'
 legacyPath: '/weblog/zack/2013/12/broken-computer-new-website.html'
 ---
 
-It has been about 4 years since I last ran a personal website. I've had [altmeta.org](http://altmeta.org/) the whole time, but deciding what I wanted to do with it took time.
+It has been about 4 years since I last ran a personal website. I've had [altmeta.org](/) the whole time, but deciding what I wanted to do with it took time.
 
 Part of the trouble is expense: I build enterprise-scale websites and services for a living, and I'm accustomed to a certain level of fault tolerance and operational excellence. For personal and smaller websites, it simply isn't practical to run a three tier architecture with no single point of failure. The simplest such setup I could think of would cost about \$160 / month [^1]. Compared to some other hobbies, this is still pretty affordable, but I felt like I could get many of the same benefits for less investment. This thought led me to research many options, but none ever got as far as implementation.
 
