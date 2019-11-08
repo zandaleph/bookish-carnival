@@ -5,7 +5,7 @@ lead: 'Watch as I spend a lot of effort going nowhere.'
 legacyPath: '/weblog/zack/2013/12/adventures-in-redundancy.html'
 ---
 
-Well, [altmeta.org](/) has only been up for two days, and I've already upgraded the hosting. As I briefly mentioned [in my last weblog post](/broken-computer-new-website/), I was running as a completely static website out of S3. There are a lot of cool things that you can do with such a website, but to get anything flashy you have to write a lot of javascript and use a hosted datastore. This did not sound like my current idea of fun.
+Well, [altmeta.org](/) has only been up for two days, and I've already upgraded the hosting. As I briefly mentioned [in my last weblog post](/weblog/zack/2013/12/broken-computer-new-website/), I was running as a completely static website out of S3. There are a lot of cool things that you can do with such a website, but to get anything flashy you have to write a lot of javascript and use a hosted datastore. This did not sound like my current idea of fun.
 
 To do anything other than static, however, I would need a server. Because I was already running on the AWS infrastructure, I looked to their [spot instances](https://aws.amazon.com/ec2/spot-instances/) for my solution. For $0.004 / hour, or about $3 / month, I could have a t1.micro server and do whatever I wanted with it.
 

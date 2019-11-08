@@ -5,7 +5,7 @@ lead: 'Look ma, no manual intervention!'
 legacyPath: '/weblog/zack/2013/12/hands-free-operations.html'
 ---
 
-Remember [last time](/adventures-in-redundancy/) when I setup a fallback plan in case my webserver failed? Well, it didn't take long for that to happen. Twice.
+Remember [last time](/weblog/zack/2013/12/adventures-in-redundancy/) when I setup a fallback plan in case my webserver failed? Well, it didn't take long for that to happen. Twice.
 
 ![Graph of CPU Utilization over time for three instances.](./spot-instance-CPUUtilization.png)
 
