@@ -15,10 +15,12 @@ The problem here is that even when the third instance started running, it didn't
 
 Since I had a feeling I would need to do this again, I backed up all the configuration files I needed into S3, and wrote down this set of instructions for future me [^1]:
 
+```sh
 sudo yum -y install nginx
 sudo aws s3 cp s3://org.altmeta.data/spot-1/nginx.conf /etc/nginx/nginx.conf --region us-west-2
 sudo aws s3 cp s3://org.altmeta.data/spot-1/ping /usr/share/nginx/html/ping --region us-west-2
 sudo service nginx start
+```
 
 Now I could restore a server to working order at will. Unfortunately, it meant that I would need to be made aware of when this server was offline, which could take a long time. Ideally, I would have these commands be run automatically at startup, thus removing the need for manual intervention.
 
@@ -28,7 +30,9 @@ I was thrilled to learn about cloud-init and how it could solve my automation pr
 
 My first attempt at my cloud-init script was to just put the above commands into my userdata. It was so simple, how could it not work? However, when my new instance launched, it was like cloud-init had never run! Files hadn't been downloaded, nginx hadn't even been installed! I tracked down the logfile for cloud-init at `/var/log/cloud-init.log`, and saw the following:
 
+```
 sudo: Sorry, you must have a tty to run sudo
+```
 
 For a moment, I despaired that cloud-init had failed me. [Initial research](http://serverfault.com/questions/324415/running-sudo-commands-in-cloud-init-script) seemed to indicate that I would need to change a file owned by `root` in order to use `sudo`. This becomes a chicken-and-egg problem, since you usually need to use `sudo` to change files owned by `root`. I was saved by [further research](http://stackoverflow.com/questions/15358830/can-i-use-cloud-init-to-install-and-configure-chef-but-not-actually-run-it), which confirmed that cloud-init is run as `root`, and therefore does not need `sudo` for anything.
 
@@ -40,17 +44,21 @@ One thing cloud-init supports is the notion of including files. This is a list o
 
 Ultimately, my user-data ended up looking like this:
 
+```
 #include
 https://s3-us-west-2.amazonaws.com/org.altmeta.data/spot-1/startup
+```
 
-And [the included file](https://s3-us-west-2.amazonaws.com/org.altmeta.data/spot-1/startup) looked like this:
+And [the included file](https://s3.amazonaws.com/org.altmeta.data/spot-1/startup) looked like this:
 
+```bash
 #!/bin/bash
 yum -y install nginx
 aws s3 cp s3://org.altmeta.data/spot-1/nginx.conf /etc/nginx/nginx.conf --region us-west-2
 aws s3 cp s3://org.altmeta.data/spot-1/ping /usr/share/nginx/html/ping --region us-west-2
 service nginx start
 aws ec2 associate-address --instance-id `curl http://169.254.169.254/latest/meta-data/instance-id` --allocation-id eipalloc-f04f5b92 --region us-west-2
+```
 
 (That last line is to associate my public ip address with this instance, so that web traffic to altmeta.org routes to this server.)
 
