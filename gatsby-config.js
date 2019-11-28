@@ -21,10 +21,13 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
+    `gatsby-remark-vscode`,
+    `gatsby-remark-images`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-vscode`,
             options: {

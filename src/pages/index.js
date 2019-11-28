@@ -18,7 +18,7 @@ export default function IndexPage({ data }) {
         riveting weblog entries.
       </p>
       <ul>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {data.allMdx.edges.map(({ node }) => (
           <li key={node.id}>
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </li>
@@ -30,7 +30,7 @@ export default function IndexPage({ data }) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

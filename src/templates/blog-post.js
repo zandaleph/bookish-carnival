@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { css } from '@emotion/core';
 import ordinal from 'ordinal';
 import Layout from '../components/Layout';
 
 export default function BlogPost({ data }) {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   const fm = post.frontmatter;
   const date = `${fm.month} ${ordinal(parseInt(fm.day))}, ${fm.year}`;
   return (
@@ -19,15 +20,15 @@ export default function BlogPost({ data }) {
       >
         {fm.lead}
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <MDXRenderer>{post.body}</MDXRenderer>
     </Layout>
   );
 }
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         day: date(formatString: "DD")
