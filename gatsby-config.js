@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Altmeta.org`,
@@ -42,6 +44,7 @@ module.exports = {
                   version: '0.1.0',
                 },
               ],
+              extensionDataDirectory: path.resolve('extensions'),
             },
           },
           {
