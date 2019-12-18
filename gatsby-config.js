@@ -37,6 +37,10 @@ module.exports = {
                   identifier: 'shanoor.vscode-nginx',
                   version: '0.6.0',
                 },
+                {
+                  identifier: 'silvenon.mdx',
+                  version: '0.1.0',
+                },
               ],
             },
           },
