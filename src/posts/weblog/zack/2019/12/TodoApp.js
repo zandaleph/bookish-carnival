@@ -6,6 +6,21 @@ function initTodos(initialTodos) {
   return initialTodos.map(e => ({ text: e }));
 }
 
+function mergeTodos(todos, idx) {
+  if (idx < 0 || idx >= todos.length - 1) {
+    return todos;
+  }
+  const newTodos = [...todos];
+  const firstTodo = newTodos[idx];
+  const secondTodo = newTodos[idx + 1];
+  newTodos.splice(idx, 2, {
+    ...firstTodo,
+    text: firstTodo.text + secondTodo.text,
+    focus: firstTodo.text.length,
+  });
+  return newTodos;
+}
+
 function todoReducer(todos, action) {
   const idx = action.index;
   switch (action.type) {
@@ -26,32 +41,10 @@ function todoReducer(todos, action) {
       return newTodos;
     }
     case 'MERGE_PREV_TODO': {
-      if (idx === 0) {
-        return todos;
-      }
-      const newTodos = [...todos];
-      const firstTodo = newTodos[idx - 1];
-      const secondTodo = newTodos[idx];
-      newTodos.splice(idx - 1, 2, {
-        ...firstTodo,
-        text: firstTodo.text + secondTodo.text,
-        focus: firstTodo.text.length,
-      });
-      return newTodos;
+      return mergeTodos(todos, idx - 1);
     }
     case 'MERGE_NEXT_TODO': {
-      if (idx === todos.length - 1) {
-        return todos;
-      }
-      const newTodos = [...todos];
-      const firstTodo = newTodos[idx];
-      const secondTodo = newTodos[idx + 1];
-      newTodos.splice(idx, 2, {
-        ...firstTodo,
-        text: firstTodo.text + secondTodo.text,
-        focus: firstTodo.text.length,
-      });
-      return newTodos;
+      return mergeTodos(todos, idx);
     }
     case 'FOCUSED': {
       const newTodos = [...todos];
