@@ -3,7 +3,8 @@ import { css } from '@emotion/core';
 import TodoItem from './TodoItem';
 
 function initTodos(initialTodos) {
-  return initialTodos.map(e => ({ text: e }));
+  const todos = initialTodos != null ? initialTodos : ['Make a Todo'];
+  return todos.map(e => ({ text: e }));
 }
 
 function mergeTodos(todos, idx) {
@@ -46,11 +47,6 @@ function todoReducer(todos, action) {
     case 'MERGE_NEXT_TODO': {
       return mergeTodos(todos, idx);
     }
-    case 'FOCUSED': {
-      const newTodos = [...todos];
-      newTodos[idx] = { ...newTodos[idx], focus: undefined };
-      return newTodos;
-    }
     default: {
       return todos;
     }
@@ -74,8 +70,7 @@ const todoAppCss = css`
   }
 `;
 
-export default function TodoApp(props) {
-  const { initialTodos } = props;
+export default function TodoApp({ initialTodos }) {
   const [todos, dispatch] = useReducer(todoReducer, initialTodos, initTodos);
   const todoItems = todos.map((todo, idx) => {
     return (

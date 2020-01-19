@@ -83,16 +83,18 @@ const textInputCss = css`
   }
 `;
 
-export default function TodoItem(props) {
-  const { todo, dispatch } = props;
+export default function TodoItem({ todo, dispatch }) {
   const textInput = useRef();
   useEffect(() => {
     if (todo.focus != null && textInput.current != null) {
       textInput.current.focus();
       textInput.current.setSelectionRange(todo.focus, todo.focus);
-      dispatch({ type: 'FOCUSED' });
+      dispatch({
+        type: 'SET_TODO',
+        todo: { ...todo, focus: undefined },
+      });
     }
-  }, [todo.focus, dispatch]);
+  }, [todo, dispatch]);
 
   return (
     <li>
