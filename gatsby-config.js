@@ -7,7 +7,8 @@ module.exports = {
     author: `Zack Spencer`,
   },
   plugins: [
-    `gatsby-plugin-eslint`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-tslint`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
