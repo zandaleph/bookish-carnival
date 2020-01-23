@@ -4,10 +4,6 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 
-import Amplify from 'aws-amplify';
-import config from '../aws-exports';
-Amplify.configure(config);
-
 interface Query {
   allMdx: {
     totalCount: number;

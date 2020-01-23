@@ -1,11 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { rhythm } from '../utils/typography';
 
 import Header from './Header';
+
+// Let's guarantee Amplify is configured on every page
+import Amplify from 'aws-amplify';
+import config from '../aws-exports';
+Amplify.configure(config);
 
 interface LayoutData {
   site: {
@@ -58,7 +62,3 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
     </>
   );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
