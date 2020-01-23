@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Dispatch } from 'react';
 import { css } from '@emotion/core';
+import { Todo, TodoAction } from './todoReducer';
 
 function todoItemOnKeyDown(
   dispatch: (action: any) => void
@@ -85,15 +86,9 @@ const textInputCss = css`
   }
 `;
 
-export interface Todo {
-  text: string;
-  isDone?: boolean;
-  focus?: number;
-}
-
 interface Props {
   todo: Todo;
-  dispatch: (action: any) => void;
+  dispatch: Dispatch<TodoAction>;
 }
 
 export default function TodoItem({ todo, dispatch }: Props) {
