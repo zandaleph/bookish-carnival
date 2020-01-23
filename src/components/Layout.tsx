@@ -7,8 +7,18 @@ import { rhythm } from '../utils/typography';
 
 import Header from './Header';
 
-export default function Layout({ children }) {
-  const data = useStaticQuery(graphql`
+interface LayoutData {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      author: string;
+    };
+  };
+}
+
+export default function Layout({ children }: React.PropsWithChildren<{}>) {
+  const data: LayoutData = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {

@@ -4,11 +4,32 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 
-import Amplify from '@aws-amplify/core';
+import Amplify from 'aws-amplify';
 import config from '../aws-exports';
 Amplify.configure(config);
 
-export default function IndexPage({ data }) {
+interface Query {
+  allMdx: {
+    totalCount: number;
+    edges: {
+      node: {
+        id: string;
+        frontmatter: {
+          title: string;
+        };
+        fields: {
+          slug: string;
+        };
+      };
+    }[];
+  };
+}
+
+interface Props {
+  data: Query;
+}
+
+export default function IndexPage({ data }: Props) {
   return (
     <Layout>
       <h1>A Website</h1>

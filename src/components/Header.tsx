@@ -6,9 +6,12 @@ import { rhythm } from '../utils/typography';
 import { navigate } from '@reach/router';
 
 import { logout, isLoggedIn } from '../utils/auth';
-// import { Auth } from 'aws-amplify';
 
-export default function Header({ siteTitle }) {
+interface Props {
+  siteTitle: string;
+}
+
+export default function Header({ siteTitle }: Props) {
   return (
     <>
       <Link to="/">
@@ -27,8 +30,9 @@ export default function Header({ siteTitle }) {
             const { Auth } = await import('aws-amplify');
 
             Auth.signOut()
-              .then(logout(() => navigate('/backend')))
-              .catch(err => console.log('eror:', err));
+              .then(() => logout(() => navigate('/backend')))
+              // tslint:disable-next-line:no-console
+              .catch((err: string) => console.log('eror:', err));
           }}
           css={css`
             margin-top: ${rhythm(1.5)};

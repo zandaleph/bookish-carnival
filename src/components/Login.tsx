@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import { setUser, isLoggedIn } from '../utils/auth';
 import Error from './Error';
 // import { Auth } from 'aws-amplify';
-import { useState } from 'react';
 
-export default function Login() {
+interface Props {
+  path: string;
+}
+
+export default function Login(props: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -23,7 +26,7 @@ export default function Login() {
       navigate('/backend/home');
     } catch (err) {
       setError(err);
-      console.log('error...: ', err);
+      console.log('error...: ', err); // tslint:disable-line:no-console
     }
   };
 
@@ -57,7 +60,8 @@ export default function Login() {
   );
 }
 
-const styles = {
+// TODO: remove any typing
+const styles: any = {
   input: {
     height: 40,
     margin: '10px 0px',

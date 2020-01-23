@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { getCurrentUser } from '../utils/auth';
+import usePrivateRoute from '../utils/usePrivateRoute';
 
-export default function Details() {
+interface Props {
+  path: string;
+}
+
+export default function Details(props: Props) {
+  usePrivateRoute();
   const user = getCurrentUser();
-  console.log('user:', user);
+  console.log('user:', user); // tslint:disable-line:no-console
   return (
     <div>
       <h1>Profile Details</h1>

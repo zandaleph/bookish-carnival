@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import usePrivateRoute from '../utils/usePrivateRoute';
 
-export default function Home() {
+interface Props {
+  path: string;
+}
+
+export default function Home(props: Props) {
+  const loggedIn = usePrivateRoute();
+  if (!loggedIn) {
+    return null;
+  }
   return (
     <div>
       <h1>Home</h1>

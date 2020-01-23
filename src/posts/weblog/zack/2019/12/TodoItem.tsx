@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import { css } from '@emotion/core';
 
-function todoItemOnKeyDown(dispatch) {
+function todoItemOnKeyDown(
+  dispatch: (action: any) => void
+): React.KeyboardEventHandler<HTMLInputElement> {
   return e => {
     if (e.key === 'Enter') {
       dispatch({
         type: 'SPLIT_TODO',
-        start: e.target.selectionStart,
-        end: e.target.selectionEnd,
+        start: e.currentTarget.selectionStart,
+        end: e.currentTarget.selectionEnd,
       });
     } else if (
       e.key === 'Backspace' &&
-      e.target.selectionStart === 0 &&
-      e.target.selectionEnd === 0
+      e.currentTarget.selectionStart === 0 &&
+      e.currentTarget.selectionEnd === 0
     ) {
       e.preventDefault();
       dispatch({
@@ -20,8 +22,8 @@ function todoItemOnKeyDown(dispatch) {
       });
     } else if (
       e.key === 'Delete' &&
-      e.target.selectionStart === e.target.value.length &&
-      e.target.selectionEnd === e.target.value.length
+      e.currentTarget.selectionStart === e.currentTarget.value.length &&
+      e.currentTarget.selectionEnd === e.currentTarget.value.length
     ) {
       e.preventDefault();
       dispatch({
@@ -83,8 +85,19 @@ const textInputCss = css`
   }
 `;
 
-export default function TodoItem({ todo, dispatch }) {
-  const textInput = useRef();
+export interface Todo {
+  text: string;
+  isDone?: boolean;
+  focus?: number;
+}
+
+interface Props {
+  todo: Todo;
+  dispatch: (action: any) => void;
+}
+
+export default function TodoItem({ todo, dispatch }: Props) {
+  const textInput = useRef<HTMLInputElement>(null);
   useEffect(() => {
     if (todo.focus != null && textInput.current != null) {
       textInput.current.focus();

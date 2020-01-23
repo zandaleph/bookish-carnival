@@ -1,13 +1,13 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, Reducer } from 'react';
 import { css } from '@emotion/core';
-import TodoItem from './TodoItem';
+import TodoItem, { Todo } from './TodoItem';
 
-function initTodos(initialTodos) {
+function initTodos(initialTodos: string[]): Todo[] {
   const todos = initialTodos != null ? initialTodos : ['Make a Todo'];
   return todos.map(e => ({ text: e }));
 }
 
-function mergeTodos(todos, idx) {
+function mergeTodos(todos: Todo[], idx: number): Todo[] {
   if (idx < 0 || idx >= todos.length - 1) {
     return todos;
   }
@@ -22,7 +22,8 @@ function mergeTodos(todos, idx) {
   return newTodos;
 }
 
-function todoReducer(todos, action) {
+// TODO: fix type of action.
+function todoReducer(todos: Todo[], action: any): Todo[] {
   const idx = action.index;
   switch (action.type) {
     case 'SET_TODO': {
@@ -70,8 +71,16 @@ const todoAppCss = css`
   }
 `;
 
-export default function TodoApp({ initialTodos }) {
-  const [todos, dispatch] = useReducer(todoReducer, initialTodos, initTodos);
+interface Props {
+  initialTodos: string[];
+}
+
+export default function TodoApp({ initialTodos }: Props) {
+  const [todos, dispatch] = useReducer<Reducer<Todo[], any>, string[]>(
+    todoReducer,
+    initialTodos,
+    initTodos
+  );
   const todoItems = todos.map((todo, idx) => {
     return (
       <TodoItem
