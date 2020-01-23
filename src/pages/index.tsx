@@ -4,28 +4,14 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 
-interface Query {
-  allMdx: {
-    totalCount: number;
-    edges: {
-      node: {
-        id: string;
-        frontmatter: {
-          title: string;
-        };
-        fields: {
-          slug: string;
-        };
-      };
-    }[];
-  };
-}
+import { BlogIndexQuery } from '../../types/graphql-type';
 
 interface Props {
-  data: Query;
+  data: BlogIndexQuery;
 }
 
 export default function IndexPage({ data }: Props) {
+  const edges = data?.allMdx?.edges ?? [];
   return (
     <Layout>
       <h1>A Website</h1>
@@ -35,9 +21,9 @@ export default function IndexPage({ data }: Props) {
         riveting weblog entries.
       </p>
       <ul>
-        {data.allMdx.edges.map(({ node }) => (
+        {edges.map(({ node }) => (
           <li key={node.id}>
-            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            <Link to={node.fields?.slug ?? ''}>{node.frontmatter?.title}</Link>
           </li>
         ))}
       </ul>
@@ -46,7 +32,7 @@ export default function IndexPage({ data }: Props) {
 }
 
 export const query = graphql`
-  query {
+  query BlogIndex {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {

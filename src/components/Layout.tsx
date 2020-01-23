@@ -6,24 +6,16 @@ import { rhythm } from '../utils/typography';
 
 import Header from './Header';
 
+import { SiteTitleQuery } from '../../types/graphql-type';
+
 // Let's guarantee Amplify is configured on every page
 import Amplify from 'aws-amplify';
 import config from '../aws-exports';
 Amplify.configure(config);
 
-interface LayoutData {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      author: string;
-    };
-  };
-}
-
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
-  const data: LayoutData = useStaticQuery(graphql`
-    query SiteTitleQuery {
+  const data: SiteTitleQuery = useStaticQuery(graphql`
+    query SiteTitle {
       site {
         siteMetadata {
           title
@@ -33,17 +25,18 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
       }
     }
   `);
+  const { title, description, author } = data.site?.siteMetadata ?? {};
   return (
     <>
       <Helmet
-        title={data.site.siteMetadata.title}
+        title={title ?? ''}
         meta={[
           {
             name: 'description',
-            content: data.site.siteMetadata.description,
+            content: description ?? '',
           },
           { name: 'keywords', content: 'sample, something' },
-          { name: 'author', content: data.site.siteMetadata.author },
+          { name: 'author', content: author ?? '' },
         ]}
       >
         <html lang="en" />
@@ -56,7 +49,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
           padding-top: ${rhythm(1.5)};
         `}
       >
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={title ?? ''} />
         {children}
       </div>
     </>

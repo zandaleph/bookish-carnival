@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         slug: node.fields.slug,
       },
@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
       createPage({
         path: node.frontmatter.legacyPath,
-        component: path.resolve(`./src/templates/redirect.js`),
+        component: path.resolve(`./src/templates/redirect.tsx`),
         context: {
           slug: node.fields.slug,
         },
