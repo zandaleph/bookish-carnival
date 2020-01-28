@@ -16,3 +16,6 @@ amplify/.config/local-*
 amplify/backend/amplify-meta.json
 aws-exports.js
 awsconfiguration.json
+
+# gatsby-plugin-graphql-codegen
+types/graphql-type.ts
