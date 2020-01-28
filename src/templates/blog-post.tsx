@@ -13,7 +13,7 @@ interface Props {
 export default function BlogPost({ data }: Props) {
   const post = data.mdx;
   const fm = post?.frontmatter;
-  const date = `${fm?.month} ${ordinal(parseInt(fm?.day))}, ${fm?.year}`;
+  const date = `${fm?.month} ${ordinal(parseInt(fm?.day, 10))}, ${fm?.year}`;
   return (
     <Layout>
       <h1>{fm?.title}</h1>
