@@ -6537,6 +6537,14 @@ gatsby-telemetry@^1.1.47:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
+gatsby-transformer-gitinfo@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-gitinfo/-/gatsby-transformer-gitinfo-1.1.0.tgz#7b614b003171e96fe77adf5d3f57d41a63045411"
+  integrity sha512-kJ5RwgyUE7T/5BnMaNtElNC7+YufP8C5llaJOfB9I4/wNwwK/lSiGngchwpLX13LtRGjk8O1ZIyqkP2sElKl2w==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
+    simple-git "^1.126.0"
+
 gatsby-transformer-remark@^2.6.32:
   version "2.6.48"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-2.6.48.tgz#a37df4be05650371804833aa2011374771e7a39e"
@@ -12587,6 +12595,13 @@ simple-get@^3.0.3, simple-get@^3.1.0:
     decompress-response "^4.2.0"
     once "^1.3.1"
     simple-concat "^1.0.0"
+
+simple-git@^1.126.0:
+  version "1.131.0"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.131.0.tgz#68d85bf6a706e418b8a92cae765d2ad358781e21"
+  integrity sha512-z/art7YYtmPnnLItT/j+nKwJt6ap6nHZ4D8sYo9PdCKK/ug56SN6m/evfxJk7uDV3e9JuCa8qIyDU2P3cxmiNQ==
+  dependencies:
+    debug "^4.0.1"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

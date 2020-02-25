@@ -34,6 +34,7 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
+    `gatsby-transformer-gitinfo`,
     `gatsby-remark-vscode`,
     `gatsby-remark-images`,
     {
