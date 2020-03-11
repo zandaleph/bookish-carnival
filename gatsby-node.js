@@ -21,9 +21,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  const result = await graphql(`
-    query {
-      allMdx {
+  const result = await graphql(/* GraphQL */ `
+    query BlogPosts {
+      allMdx(sort: { fields: [frontmatter___date], order: ASC }) {
         edges {
           node {
             fields {
@@ -31,18 +31,22 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               legacyPath
+              title
             }
           }
         }
       }
     }
   `);
-  result.data.allMdx.edges.forEach(({ node }) => {
+  const edges = result.data.allMdx.edges;
+  edges.forEach(({ node }, index) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         slug: node.fields.slug,
+        prev: index <= 0 ? null : edges[index - 1].node,
+        next: index >= edges.length - 1 ? null : edges[index + 1].node,
       },
     });
     if (node.frontmatter.legacyPath != null) {

@@ -1,10 +1,12 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { css } from '@emotion/core';
 import ordinal from 'ordinal';
 import Layout from '../components/Layout';
-import { BlogPostQuery } from '../../types/graphql-type';
+import { BlogPostQuery, BlogPostsQuery } from '../../types/graphql-type';
+
+type BlogPostNode = BlogPostsQuery['allMdx']['edges'][0]['node'];
 
 const GITHUB_HISTORY_URL_BASE =
   'https://github.com/zandaleph/bookish-carnival/commits/master/src/posts/';
@@ -27,16 +29,36 @@ function formatDate(isoDate: any | null | undefined): string {
   return `${month} ${ordinal(day)}, ${year} ${time}`;
 }
 
-interface Props {
-  data: BlogPostQuery;
+function relativeLink(
+  rel: BlogPostNode | null,
+  link: string
+): JSX.Element | null {
+  return rel != null ? (
+    <Link to={rel.fields?.slug ?? ''}>
+      {link}: {rel.frontmatter?.title}
+    </Link>
+  ) : null;
 }
 
-export default function BlogPost({ data }: Props) {
+interface Props {
+  data: BlogPostQuery;
+  pageContext: {
+    prev: BlogPostNode | null;
+    next: BlogPostNode | null;
+  };
+}
+
+export default function BlogPost({ data, pageContext }: Props) {
+  console.log('pageContext ', data, pageContext);
   const post = data.mdx;
   const fm = post?.frontmatter;
   const editDate = formatDate(post?.parent?.fields?.gitLogLatestDate);
   const path = post?.parent?.relativePath;
   const githubHref = GITHUB_HISTORY_URL_BASE + path;
+
+  const prevLink = relativeLink(pageContext.prev, 'Previous');
+  const nextLink = relativeLink(pageContext.next, 'Next');
+
   return (
     <Layout>
       <h1>{fm?.title}</h1>
@@ -56,6 +78,8 @@ export default function BlogPost({ data }: Props) {
       >
         <a href={githubHref}>Last edited: {editDate}</a>
       </p>
+      <p>{prevLink}</p>
+      <p>{nextLink}</p>
     </Layout>
   );
 }
