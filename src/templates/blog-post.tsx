@@ -49,7 +49,6 @@ interface Props {
 }
 
 export default function BlogPost({ data, pageContext }: Props) {
-  console.log('pageContext ', data, pageContext);
   const post = data.mdx;
   const fm = post?.frontmatter;
   const editDate = formatDate(post?.parent?.fields?.gitLogLatestDate);
