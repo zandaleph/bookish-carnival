@@ -21,7 +21,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  const result = await graphql(/* GraphQL */ `
+  const result = await graphql(`
     query BlogPosts {
       allMdx(sort: { fields: [frontmatter___date], order: ASC }) {
         edges {
