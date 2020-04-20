@@ -95,7 +95,7 @@ export const query = graphql`
       parent {
         ... on File {
           fields {
-            gitLogLatestDate
+            gitLogLatestDate(formatString: "YYYY-MM-DD[T]HH:mm:ssZ")
           }
           relativePath
         }
