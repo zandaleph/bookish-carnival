@@ -70,7 +70,7 @@ All I'm doing is installing ruby and the AWS SDK I need, followed by inserting
 my script into a common place for scripts. I also add a small task to be run by
 cron by putting this file into /etc/cron.d:
 
-```cron
+```crontab
 AWS_REGION=us-east-1
 @daily root /usr/local/bin/log_condense
 ```

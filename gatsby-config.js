@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     title: `Altmeta.org`,
@@ -36,7 +34,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-gitinfo`,
-    `gatsby-remark-vscode`,
     `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
@@ -46,18 +43,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              colorTheme: 'Solarized Light',
+              theme: 'Solarized Light',
               extensions: [
-                {
-                  identifier: 'shanoor.vscode-nginx',
-                  version: '0.6.0',
-                },
-                {
-                  identifier: 'silvenon.mdx',
-                  version: '0.1.0',
-                },
+                `${__dirname}/extensions/shanoor.vscode-nginx/extension/package.json`,
+                `${__dirname}/extensions/silvenon.mdx/extension/package.json`,
+                `${__dirname}/extensions/hogashi.crontab-syntax-highlight-0.0.1.vsix`,
               ],
-              extensionDataDirectory: path.resolve('extensions'),
             },
           },
           {
