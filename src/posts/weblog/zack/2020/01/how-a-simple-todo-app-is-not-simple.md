@@ -1,7 +1,7 @@
 ---
 title: 'How a Simple Todo App is Not Simple'
 date: '2020-01-15'
-lead: 'In which the side project overwhelms the original goal'
+lead: 'In which the side, project overwhelms the original goal'
 ---
 
 To demonstrate what MDX allows me to do in posts, for my recent ["how to upgrate
@@ -125,9 +125,9 @@ decision is so important as we grow as developers.
 
 [^1]:
 
-  In fairness, there are good reasons to prefer a drawn checkbox: consistent
-  look, predictable location within the bounding box, and customizability.
-  However, I don't believe you should use CSS to create icons - unicode offers
-  an array of well-known and, therefore, meaning bearing symbols. If the
-  advantages of the CSS method outweigh, I'd probably use SVG instead (though it
-  is likely less effective from a raw content size standpoint)
+    In fairness, there are good reasons to prefer a drawn checkbox: consistent
+    look, predictable location within the bounding box, and customizability.
+    However, I don't believe you should use CSS to create icons - unicode offers
+    an array of well-known and, therefore, meaning bearing symbols. If the
+    advantages of the CSS method outweigh, I'd probably use SVG instead (though it
+    is likely less effective from a raw content size standpoint)

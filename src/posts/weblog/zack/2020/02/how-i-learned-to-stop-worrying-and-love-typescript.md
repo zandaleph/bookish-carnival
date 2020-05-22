@@ -202,23 +202,23 @@ had to offer and embrace it as my solution.
 
 [^1]:
 
-  Javascript is a dynamic language, which generally means that every value can
-  be anything - a boolean, a number, a string of characters, even an object with
-  many properties each of which can be anything. This freedom means it can be
-  quick to write and change, but if you use something in a way which wasn't
-  expected, the program fails in hard to debug ways. Adding a type checker
-  requires me to declare what types everything is, but then checks my code as I
-  write it to make sure I don't break any of the typing rules I create.
+    Javascript is a dynamic language, which generally means that every value can
+    be anything - a boolean, a number, a string of characters, even an object with
+    many properties each of which can be anything. This freedom means it can be
+    quick to write and change, but if you use something in a way which wasn't
+    expected, the program fails in hard to debug ways. Adding a type checker
+    requires me to declare what types everything is, but then checks my code as I
+    write it to make sure I don't break any of the typing rules I create.
 
-  I appreciate that "easier" is a non-obvious description here. The word
-  that is usually applied is "safer", but I contest that safer in this context
-  means enough fewer bugs that development truly is easier as well.
+    I appreciate that "easier" is a non-obvious description here. The word
+    that is usually applied is "safer", but I contest that safer in this context
+    means enough fewer bugs that development truly is easier as well.
 
 [^2]:
 
-  There are lots of versions of javascript right now and I'm really new to the
-  space so I'm not sure if _all_ javascripts are valid typescript but certainly
-  the less cutting-edge features are present (for example, the
-  [nullish-coalescing] operator `??` is supported).
+    There are lots of versions of javascript right now and I'm really new to the
+    space so I'm not sure if _all_ javascripts are valid typescript but certainly
+    the less cutting-edge features are present (for example, the
+    [nullish-coalescing] operator `??` is supported).
 
 [nullish-coalescing]: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#nullish-coalescing

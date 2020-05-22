@@ -127,10 +127,10 @@ address continues, should you want to share your feedback with me.
 
 [^1]:
 
-  The `aws` command here is [AWS's command line interface], and the [`s3 cp`
-  subcommand is explained here]. The command gets its authentication tokens from
-  [instance metadata], which means I don't have to worry about how to get
-  credentials on to the box.
+    The `aws` command here is [AWS's command line interface], and the [`s3 cp`
+    subcommand is explained here]. The command gets its authentication tokens
+    from [instance metadata], which means I don't have to worry about how to get
+    credentials on to the box.
 
 [aws's command line interface]: http://aws.amazon.com/cli/
 [`s3 cp` subcommand is explained here]: http://docs.aws.amazon.com/cli/latest/reference/s3/cp.html

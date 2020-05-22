@@ -175,16 +175,16 @@ appreciated.
 
 [^1]:
 
-  One of the things I did while I couldn't access my server was figure out
-  exactly how much it would cost me to move to a dedicated server. I made some
-  pretty sweet graphs in the process, which you can see below. I think I might
-  spend a little bit of time making it easier to create these graphs, since I
-  found them really useful in making decisions.
+    One of the things I did while I couldn't access my server was figure out
+    exactly how much it would cost me to move to a dedicated server. I made some
+    pretty sweet graphs in the process, which you can see below. I think I might
+    spend a little bit of time making it easier to create these graphs, since I
+    found them really useful in making decisions.
 
-  ![Graph of t1.micro instance total cost over time, based on
-  contract](./t1-micro-total-cost-by-month.png 'The sharp upward spikes are when
-  you pay the upfront cost again')
+    ![Graph of t1.micro instance total cost over time, based on
+    contract](./t1-micro-total-cost-by-month.png 'The sharp upward spikes are when
+    you pay the upfront cost again')
 
-  ![Graph of t1.micro instance monthly cost over time, based on
-  contract](./t1-micro-monthly-cost-by-month.png 'This graph makes it easier to
-  compare running costs, I think')
+    ![Graph of t1.micro instance monthly cost over time, based on
+    contract](./t1-micro-monthly-cost-by-month.png 'This graph makes it easier to
+    compare running costs, I think')

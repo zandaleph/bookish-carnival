@@ -91,10 +91,10 @@ it to me the "old fashioned" way. Cheers.
 
 [^2]:
 
-  We can do almost anything with just a web browser these days. Not just
-  Google's [gmail], [calendar], and [documents]; but also music ([Pandora],
-  [Spotify], and [Rdio], to name a few), [accounting], [taxes], and even coding
-  ([GitHub]) and [JSFiddle], for example).
+    We can do almost anything with just a web browser these days. Not just
+    Google's [gmail], [calendar], and [documents]; but also music ([Pandora],
+    [Spotify], and [Rdio], to name a few), [accounting], [taxes], and even coding
+    ([GitHub]) and [JSFiddle], for example).
 
 [gmail]: https://mail.google.com/
 [calendar]: https://calendar.google.com/

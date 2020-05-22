@@ -139,26 +139,26 @@ for reading.
 
 [^1]:
 
-  There were actually a lot of clicks, but only because I decided to also setup
-  a VPC at the same time, and [that stuff is complicated].
+    There were actually a lot of clicks, but only because I decided to also setup
+    a VPC at the same time, and [that stuff is complicated].
 
 [that stuff is complicated]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html
 
 [^2]:
 
-  It is important to note here that I'm running the Amazon Linux image, which is
-  based on Red Hat / CentOS and not Debian / Ubuntu. You should read the nginx
-  documentation if this or other commands don't work.
+    It is important to note here that I'm running the Amazon Linux image, which is
+    based on Red Hat / CentOS and not Debian / Ubuntu. You should read the nginx
+    documentation if this or other commands don't work.
 
 [^3]:
 
-  In-flight requests to the machine that failed will still fail, but refreshing
-  the page will make the problem go away, so most people just assume they had a
-  bad internet connection.
+    In-flight requests to the machine that failed will still fail, but refreshing
+    the page will make the problem go away, so most people just assume they had a
+    bad internet connection.
 
 [^4]:
 
-  I am indebted to [this post from nixCraft] for bootstrapping my nginx proxy
-  configuration.
+    I am indebted to [this post from nixCraft] for bootstrapping my nginx proxy
+    configuration.
 
 [this post from nixcraft]: http://www.cyberciti.biz/tips/using-nginx-as-reverse-proxy.html
