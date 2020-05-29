@@ -13,7 +13,7 @@ import Amplify from 'aws-amplify';
 import config from '../aws-exports';
 Amplify.configure(config);
 
-export default function Layout({ children }: React.PropsWithChildren<{}>) {
+export const Layout: React.FC = ({ children }) => {
   const data: SiteTitleQuery = useStaticQuery(graphql`
     query SiteTitle {
       site {
@@ -54,4 +54,4 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
       </div>
     </>
   );
-}
+};

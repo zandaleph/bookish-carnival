@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 interface Props {
@@ -7,9 +7,11 @@ interface Props {
   };
 }
 
-export default function Redirect({ pageContext }: Props) {
+const Redirect: React.FC<Props> = ({ pageContext }) => {
   useEffect(() => {
-    navigate(pageContext.slug, { replace: true });
+    void navigate(pageContext.slug, { replace: true });
   });
   return null;
-}
+};
+
+export default Redirect;

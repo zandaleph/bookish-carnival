@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 
 import { BlogIndexQuery } from '../../types/graphql-type';
 
@@ -10,7 +10,7 @@ interface Props {
   data: BlogIndexQuery;
 }
 
-export default function IndexPage({ data }: Props) {
+const IndexPage: React.FC<Props> = ({ data }) => {
   const edges = data?.allMdx?.edges ?? [];
   return (
     <Layout>
@@ -29,7 +29,9 @@ export default function IndexPage({ data }: Props) {
       </ul>
     </Layout>
   );
-}
+};
+
+export default IndexPage;
 
 export const query = graphql`
   query BlogIndex {

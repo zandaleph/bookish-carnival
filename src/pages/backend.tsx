@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import Layout from '../components/Layout';
-import Details from '../components/Details';
-import Home from '../components/Home';
-import Login from '../components/Login';
+import { Layout } from '../components/Layout';
+import { Details } from '../components/Details';
+import { Home } from '../components/Home';
+import { Login } from '../components/Login';
 
-export default function Backend() {
+const Backend: React.FC = () => {
   return (
     <Layout>
       <Router>
@@ -15,4 +15,6 @@ export default function Backend() {
       </Router>
     </Layout>
   );
-}
+};
+
+export default Backend;

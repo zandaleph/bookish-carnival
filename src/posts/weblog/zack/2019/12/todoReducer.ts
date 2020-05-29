@@ -42,7 +42,7 @@ export function todoReducer(todos: Todo[], action: IndexedTodoAction): Todo[] {
         idx,
         1,
         { ...prevTodo, text: prevTodo.text.substring(0, action.start) },
-        { text: prevTodo.text.substring(action.end), isDone: false, focus: 0 }
+        { text: prevTodo.text.substring(action.end), isDone: false, focus: 0 },
       );
       return newTodos;
     }

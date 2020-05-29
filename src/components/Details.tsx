@@ -7,10 +7,11 @@ interface Props {
   path: string;
 }
 
-export default function Details(props: Props) {
+export const Details: React.FC<Props> = (_props) => {
   usePrivateRoute();
   const user = getCurrentUser();
   console.log('user:', user); // tslint:disable-line:no-console
+  if (!user) return null;
   return (
     <div>
       <h1>Profile Details</h1>
@@ -20,4 +21,4 @@ export default function Details(props: Props) {
       <Link to="/backend/home">Home</Link>
     </div>
   );
-}
+};

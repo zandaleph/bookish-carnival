@@ -2,10 +2,10 @@
 import React from 'react';
 
 interface Props {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
-export default function Error(props: Props) {
+const Error: React.FC<Props> = (props) => {
   return (
     <div>
       {Object.entries(props).map(([err, val]) => (
@@ -16,4 +16,6 @@ export default function Error(props: Props) {
       ))}
     </div>
   );
-}
+};
+
+export default Error;

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { navigate } from '@reach/router';
 import { setUser, isLoggedIn } from '../utils/auth';
 import Error from './Error';
-// import { Auth } from 'aws-amplify';
+import type { CognitoUser } from 'amazon-cognito-identity-js';
 
 interface Props {
   path: string;
 }
 
-export default function Login(props: Props) {
+export const Login: React.FC<Props> = (_props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -17,34 +17,34 @@ export default function Login(props: Props) {
     const { Auth } = await import('aws-amplify');
     try {
       await Auth.signIn(username, password);
-      const user = await Auth.currentAuthenticatedUser();
+      const user = (await Auth.currentAuthenticatedUser()) as CognitoUser;
       const userInfo = {
         ...user.attributes,
         username: user.username,
       };
       setUser(userInfo);
-      navigate('/backend/home');
+      void navigate('/backend/home');
     } catch (err) {
       setError(err);
       console.log('error...: ', err); // tslint:disable-line:no-console
     }
   };
 
-  if (isLoggedIn()) navigate('/backend/profile');
+  if (isLoggedIn()) void navigate('/backend/profile');
   return (
     <div>
       <h1>Sign In</h1>
       {error != null && <Error errorMessage={error} />}
       <div style={styles.formContainer}>
         <input
-          onChange={e => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
           name="username"
           value={username}
           style={styles.input}
         />
         <input
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           name="password"
           value={password}
@@ -58,10 +58,9 @@ export default function Login(props: Props) {
       <br />
     </div>
   );
-}
+};
 
-// TODO: remove any typing
-const styles: any = {
+const styles: Record<string, CSSProperties> = {
   input: {
     height: 40,
     margin: '10px 0px',

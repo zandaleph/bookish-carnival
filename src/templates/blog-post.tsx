@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { css } from '@emotion/core';
 import ordinal from 'ordinal';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 import { BlogPostQuery, BlogPostsQuery } from '../../types/graphql-type';
 
 type BlogPostNode = BlogPostsQuery['allMdx']['edges'][0]['node'];
@@ -12,7 +12,7 @@ const GITHUB_HISTORY_URL_BASE =
   'https://github.com/zandaleph/bookish-carnival/commits/master/src/posts/';
 
 // XXX All the types here should be string but the graphql codegen is broken.
-function formatDate(isoDate: any | null | undefined): string {
+function formatDate(isoDate: string | null | undefined): string {
   if (isoDate == null) {
     return 'unknown';
   }
@@ -31,7 +31,7 @@ function formatDate(isoDate: any | null | undefined): string {
 
 function relativeLink(
   rel: BlogPostNode | null,
-  link: string
+  link: string,
 ): JSX.Element | null {
   return rel != null ? (
     <Link to={rel.fields?.slug ?? ''}>
@@ -48,11 +48,13 @@ interface Props {
   };
 }
 
-export default function BlogPost({ data, pageContext }: Props) {
+const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
   const post = data.mdx;
   const fm = post?.frontmatter;
-  const editDate = formatDate(post?.parent?.fields?.gitLogLatestDate);
-  const path = post?.parent?.relativePath;
+  const editDate = formatDate(
+    post?.parent?.fields?.gitLogLatestDate as string | null | undefined,
+  );
+  const path = post?.parent?.relativePath ?? '';
   const githubHref = GITHUB_HISTORY_URL_BASE + path;
 
   const prevLink = relativeLink(pageContext.prev, 'Previous');
@@ -81,7 +83,9 @@ export default function BlogPost({ data, pageContext }: Props) {
       <p>{nextLink}</p>
     </Layout>
   );
-}
+};
+
+export default BlogPost;
 
 export const query = graphql`
   query BlogPost($slug: String!) {

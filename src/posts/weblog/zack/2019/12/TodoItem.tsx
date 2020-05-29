@@ -3,14 +3,14 @@ import { css } from '@emotion/core';
 import { Todo, TodoAction } from './todoReducer';
 
 function todoItemOnKeyDown(
-  dispatch: (action: any) => void
+  dispatch: (action: TodoAction) => void,
 ): React.KeyboardEventHandler<HTMLInputElement> {
-  return e => {
+  return (e) => {
     if (e.key === 'Enter') {
       dispatch({
         type: 'SPLIT_TODO',
-        start: e.currentTarget.selectionStart,
-        end: e.currentTarget.selectionEnd,
+        start: e.currentTarget.selectionStart ?? 0,
+        end: e.currentTarget.selectionEnd ?? 0,
       });
     } else if (
       e.key === 'Backspace' &&
@@ -91,7 +91,7 @@ interface Props {
   dispatch: Dispatch<TodoAction>;
 }
 
-export default function TodoItem({ todo, dispatch }: Props) {
+const TodoItem: React.FC<Props> = ({ todo, dispatch }) => {
   const textInput = useRef<HTMLInputElement>(null);
   useEffect(() => {
     if (todo.focus != null && textInput.current != null) {
@@ -110,7 +110,7 @@ export default function TodoItem({ todo, dispatch }: Props) {
         <input
           type="checkbox"
           checked={todo.isDone ?? false}
-          onChange={e =>
+          onChange={(e) =>
             dispatch({
               type: 'SET_TODO',
               todo: { ...todo, isDone: e.target.checked },
@@ -123,7 +123,7 @@ export default function TodoItem({ todo, dispatch }: Props) {
         ref={textInput}
         value={todo.text}
         onKeyDown={todoItemOnKeyDown(dispatch)}
-        onChange={e =>
+        onChange={(e) =>
           dispatch({
             type: 'SET_TODO',
             todo: { ...todo, text: e.target.value },
@@ -136,4 +136,6 @@ export default function TodoItem({ todo, dispatch }: Props) {
       />
     </li>
   );
-}
+};
+
+export default TodoItem;

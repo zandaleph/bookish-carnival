@@ -11,7 +11,7 @@ interface Props {
   siteTitle: string;
 }
 
-export default function Header({ siteTitle }: Props) {
+const Header: React.FC<Props> = ({ siteTitle }) => {
   return (
     <>
       <Link to="/">
@@ -44,4 +44,6 @@ export default function Header({ siteTitle }: Props) {
       )}
     </>
   );
-}
+};
+
+export default Header;

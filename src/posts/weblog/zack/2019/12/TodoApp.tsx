@@ -5,7 +5,7 @@ import { todoReducer, Todo, IndexedTodoAction } from './todoReducer';
 
 function initTodos(initialTodos: string[]): Todo[] {
   const todos = initialTodos != null ? initialTodos : ['Make a Todo'];
-  return todos.map(e => ({ text: e }));
+  return todos.map((e) => ({ text: e }));
 }
 
 const todoAppCss = css`
@@ -29,7 +29,7 @@ interface Props {
   initialTodos: string[];
 }
 
-export default function TodoApp({ initialTodos }: Props) {
+const TodoApp: React.FC<Props> = ({ initialTodos }) => {
   const [todos, dispatch] = useReducer<
     Reducer<Todo[], IndexedTodoAction>,
     string[]
@@ -39,7 +39,7 @@ export default function TodoApp({ initialTodos }: Props) {
       <TodoItem
         todo={todo}
         key={idx.toString()}
-        dispatch={action => dispatch({ ...action, index: idx })}
+        dispatch={(action) => dispatch({ ...action, index: idx })}
       />
     );
   });
@@ -49,4 +49,6 @@ export default function TodoApp({ initialTodos }: Props) {
       <ul>{todoItems}</ul>
     </div>
   );
-}
+};
+
+export default TodoApp;

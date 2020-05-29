@@ -6,7 +6,7 @@ interface Props {
   path: string;
 }
 
-export default function Home(props: Props) {
+export const Home: React.FC<Props> = (_props) => {
   const loggedIn = usePrivateRoute();
   if (!loggedIn) {
     return null;
@@ -23,4 +23,4 @@ export default function Home(props: Props) {
       </p>
     </div>
   );
-}
+};

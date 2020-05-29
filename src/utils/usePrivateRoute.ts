@@ -6,7 +6,7 @@ export default function usePrivateRoute(): boolean {
   const shouldStay = isLoggedIn();
   useEffect(() => {
     if (!shouldStay) {
-      navigate('/');
+      void navigate('/');
     }
   }, [shouldStay]);
   return shouldStay;
