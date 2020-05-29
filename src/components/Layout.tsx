@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { rhythm } from '../utils/typography';
 
