@@ -44,8 +44,8 @@ module.exports = {
             options: {
               theme: 'Solarized Light',
               extensions: [
-                `${__dirname}/extensions/shanoor.vscode-nginx/extension/package.json`,
-                `${__dirname}/extensions/silvenon.mdx/extension/package.json`,
+                `${__dirname}/extensions/shanoor.vscode-nginx-0.6.0.vsix`,
+                `${__dirname}/extensions/silvenon.mdx-0.1.0.vsix`,
                 `${__dirname}/extensions/hogashi.crontab-syntax-highlight-0.0.1.vsix`,
               ],
             },
