@@ -40,6 +40,13 @@ module.exports = {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              enableCustomId: true,
+              icon: false,
+            },
+          },
+          {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: 'Solarized Light',
