@@ -9043,7 +9043,7 @@ gatsby-recipes@^0.1.44:
     ws "^7.3.0"
     xstate "^4.10.0"
 
-gatsby-remark-autolink-headers@^2.3.12:
+gatsby-remark-autolink-headers@2.3.12:
   version "2.3.12"
   resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.3.12.tgz#bf0c99c0b0385076ce51c9f1c3b1bfd7249da1ee"
   integrity sha512-FHuI3xRN1dP+UazrpJ5rdOx08jMUscPcW/TOCpkPe02Qc5w1FZgd1Zjb768Lip786HQ/jLcqtV33P/XLwBpyHQ==
