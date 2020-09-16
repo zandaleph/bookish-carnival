@@ -18,10 +18,16 @@ export const Login: React.FC<Props> = (_props) => {
     try {
       await Auth.signIn(username, password);
       const user = (await Auth.currentAuthenticatedUser()) as CognitoUser;
-      const userInfo = {
-        ...user.attributes,
-        username: user.username,
+      const userInfo: Record<string, string> = {
+        username: user.getUsername(),
       };
+      user.getUserAttributes((err, result) => {
+        if (result != null) {
+          for (const attr of result) {
+            userInfo[attr.getName()] = attr.getValue();
+          }
+        }
+      });
       setUser(userInfo);
       void navigate('/backend/home');
     } catch (err) {
