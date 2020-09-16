@@ -22,7 +22,7 @@ module.exports = {
   rules: {
     strict: 0,
     'react/prop-types': [0],
-    'no-unused-vars': [
+    '@typescript-eslint/no-unused-vars': [
       'error',
       {
         vars: 'all',
