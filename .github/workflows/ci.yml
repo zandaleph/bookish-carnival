@@ -27,6 +27,9 @@ jobs:
       
     - name: Stub aws-exports
       run: echo "export default {};" > src/aws-exports.js
+      
+    - name: Lint
+      run: yarn lint
 
     - name: Build
       run: yarn build
