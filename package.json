@@ -27,7 +27,7 @@
     "gatsby-plugin-nullish-coalescing-operator": "1.0.1",
     "gatsby-plugin-offline": "3.2.31",
     "gatsby-plugin-react-helmet": "3.3.14",
-    "gatsby-plugin-sharp": "2.6.41",
+    "gatsby-plugin-sharp": "2.6.42",
     "gatsby-plugin-typescript": "2.4.21",
     "gatsby-plugin-typography": "2.5.13",
     "gatsby-react-router-scroll": "3.0.14",
