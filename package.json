@@ -33,7 +33,7 @@
     "gatsby-react-router-scroll": "3.0.15",
     "gatsby-remark-autolink-headers": "2.3.16",
     "gatsby-remark-images": "3.3.40",
-    "gatsby-remark-vscode": "3.1.0",
+    "gatsby-remark-vscode": "3.2.0",
     "gatsby-source-filesystem": "2.3.37",
     "gatsby-transformer-gitinfo": "1.1.0",
     "gatsby-transformer-sharp": "2.5.20",
