@@ -9314,10 +9314,10 @@ gatsby-plugin-nullish-coalescing-operator@1.0.1:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-nullish-coalescing-operator/-/gatsby-plugin-nullish-coalescing-operator-1.0.1.tgz#b43d0707c25a42cac0da86bab78385ba1b9465f6"
   integrity sha512-M3FyBdrw1wDadENeM1PpV4Q9sHe4z0X3gTGTz2A8DsaNVgo3UySDjM5o6jpaJef1Weg9guFDOMDuOtM98xaOeQ==
 
-gatsby-plugin-offline@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.3.0.tgz#f2c92fd140504c52f232e6f2ef4b87d3fcb39c98"
-  integrity sha512-v3FBCSh9AVQwY1WDJQhAxNtajuy9cwY3BHxJCEGKo3DBykg4A0hVFktpdO3sxrJXl0I3F3RBeUDQoPF2NJTG/A==
+gatsby-plugin-offline@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.3.1.tgz#bee136cabccf6effc5e7f1d313c3d898f1ec7bf8"
+  integrity sha512-OzMn78YqCXMcG0sR7SBWE7ak2J+0wd4vzODELGMXoOQYaRmKRTnTp79jVTV2/scZZoAnW6ebZTvJ2djBJqqd+A==
   dependencies:
     "@babel/runtime" "^7.11.2"
     cheerio "^1.0.0-rc.3"
