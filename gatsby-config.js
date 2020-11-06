@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Altmeta.org`,
-    description: `The riveting weblog entries of Zack Spencer`,
-    author: `Zack Spencer`,
+    description: `The riveting weblog entries of Zack Spellman`,
+    author: `Zack Spellman`,
   },
   plugins: [
     `gatsby-plugin-typescript`,

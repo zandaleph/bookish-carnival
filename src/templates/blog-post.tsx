@@ -63,7 +63,7 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
   return (
     <Layout>
       <h1>{fm?.title}</h1>
-      <p>Posted {fm?.date} by Zack Spencer</p>
+      <p>Posted {fm?.date} by Zack Spellman</p>
       <p
         css={css`
           font-style: italic;
