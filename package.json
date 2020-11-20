@@ -15,7 +15,7 @@
     "@types/typography": "0.16.3",
     "amazon-cognito-identity-js": "4.5.5",
     "aws-amplify": "3.3.8",
-    "aws-amplify-react": "4.2.12",
+    "aws-amplify-react": "4.2.13",
     "gatsby": "2.27.0",
     "gatsby-image": "2.6.0",
     "gatsby-link": "2.6.0",
