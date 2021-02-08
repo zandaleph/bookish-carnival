@@ -31,9 +31,9 @@ const IndexPage: React.FC<Props> = ({ data }) => {
         Hey, uh... you&apos;re still here! Wonderful. Well, I&apos;m
         experimenting with what I&apos;m calling &quot;feature&quot; articles,
         where content might be a little more connected than blog posts. To start
-        with, I&apos;ve got some writing on
+        with, I&apos;ve got some writing on{' '}
         <Link to="/features/learn-code/getting-started/">
-          the first steps of coding{' '}
+          the first steps of coding
         </Link>
         .
       </p>
