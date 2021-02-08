@@ -35,7 +35,10 @@ export default IndexPage;
 
 export const query = graphql`
   query BlogIndex {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { fileAbsolutePath: { glob: "**/weblog/**" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       totalCount
       edges {
         node {

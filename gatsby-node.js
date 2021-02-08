@@ -23,7 +23,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const result = await graphql(`
     query BlogPosts {
-      allMdx(sort: { fields: [frontmatter___date], order: ASC }) {
+      allMdx(
+        filter: { fileAbsolutePath: { glob: "**/weblog/**" } }
+        sort: { fields: [frontmatter___date], order: ASC }
+      ) {
         edges {
           node {
             fields {
@@ -63,6 +66,35 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     }
+  });
+  const features = await graphql(`
+    query Features {
+      allMdx(
+        filter: { fileAbsolutePath: { glob: "**/features/**" } }
+        sort: { fields: [frontmatter___date], order: ASC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              legacyPath
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
+  features.data.allMdx.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/feature.tsx`),
+      context: {
+        slug: node.fields.slug,
+      },
+    });
   });
 };
 
