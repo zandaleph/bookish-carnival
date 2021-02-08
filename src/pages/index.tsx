@@ -28,9 +28,10 @@ const IndexPage: React.FC<Props> = ({ data }) => {
         ))}
       </ul>
       <p>
-        Hey, uh... you're still here! Wonderful. Well, I'm experimenting with
-        what I'm calling "feature" articles, where content might be a little
-        more connected than blog posts. To start with, I've got some writing on
+        Hey, uh... you&apos;re still here! Wonderful. Well, I&apos;m
+        experimenting with what I&apos;m calling &quot;feature&quot; articles,
+        where content might be a little more connected than blog posts. To start
+        with, I&apos;ve got some writing on
         <Link to="/features/learn-code/getting-started/">
           the first steps of coding{' '}
         </Link>
