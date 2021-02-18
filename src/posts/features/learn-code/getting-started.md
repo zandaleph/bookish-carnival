@@ -12,7 +12,7 @@ I employ in the application menu.  Feel free to open an issue if you'd like to
 see this made a bit more cross-platform.
 
 1. Install [VS Code] and [Node.js] using the installers from their respective
-   websites.  Either the LTS or Current version is fine for Node, I prefer
+   websites.  For Node, either the LTS or Current version is fine.  I prefer
    current but LTS might be better for infrequent use.
 
 [vs code]: https://code.visualstudio.com/
@@ -29,7 +29,7 @@ see this made a bit more cross-platform.
    how to change this later. [^1]
 
 3. Next we'll open the terminal.  Open the command palate with
-   **command-shift-P**, then type "view term".
+   **command-shift-P**, then type `view term`
 
    ![VS Code Command Palate](./img/vs-code-command-palate.png)
 
