@@ -16,7 +16,7 @@
     "amazon-cognito-identity-js": "4.5.11",
     "aws-amplify": "3.3.20",
     "aws-amplify-react": "4.2.24",
-    "gatsby": "2.32.5",
+    "gatsby": "2.32.6",
     "gatsby-image": "2.11.0",
     "gatsby-link": "2.11.0",
     "gatsby-plugin-catch-links": "2.10.0",
