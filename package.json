@@ -14,7 +14,7 @@
     "@types/react-helmet": "6.1.0",
     "@types/typography": "0.16.3",
     "amazon-cognito-identity-js": "4.5.12",
-    "aws-amplify": "3.3.20",
+    "aws-amplify": "3.3.21",
     "aws-amplify-react": "4.2.24",
     "gatsby": "2.32.8",
     "gatsby-image": "2.11.0",
