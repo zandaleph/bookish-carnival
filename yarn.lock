@@ -5465,10 +5465,10 @@ aws-amplify-react@4.2.33:
     qrcode.react "^0.8.0"
     regenerator-runtime "^0.11.1"
 
-aws-amplify@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-3.4.0.tgz#3a6e054c16e18c860a0aa6a8fb1768e9fb08a903"
-  integrity sha512-x87HdPh3zWisO4YyvuXfRrw0uTTkcwVCWOLlSOjIknlIT7fb56+YAZxiySGZX5WJf6o77h5PjxNquwB9OPHFvA==
+aws-amplify@3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-3.4.2.tgz#fd250639607af362e5711a1c4d3b66880124a027"
+  integrity sha512-ERCkOvU4JwOYlKeJ/SAXz/Jqwxg21PFEkxDOdhTpZ/TN5LqMclPTAGdY4862LL8dLGq4mXi5UeO/3nPXHEh9+w==
   dependencies:
     "@aws-amplify/analytics" "4.0.19"
     "@aws-amplify/api" "3.3.0"
