@@ -37,7 +37,7 @@
     "gatsby-source-filesystem": "2.11.1",
     "gatsby-transformer-gitinfo": "1.1.0",
     "gatsby-transformer-sharp": "2.12.1",
-    "graphql": "15.5.3",
+    "graphql": "15.6.0",
     "ordinal": "1.0.3",
     "prop-types": "15.7.2",
     "react": "17.0.2",
